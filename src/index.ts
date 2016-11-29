@@ -43,11 +43,11 @@ export class IdlePreload /*implements PreloadingStrategy*/ {
   * raw providers
   */
 export const ANGULARCLASS_IDLE_PRELOAD_PROVIDERS: any[] = [
-  { provider: IdlePreload, useClass: IdlePreload }
+  { provide: IdlePreload, useClass: IdlePreload }
 ];
 
 export const ANGULARCLASS_REQUEST_IDLE_CALLBACK_PROVIDERS: any[] = [
-  { provider: REQUEST_IDLE_CALLBACK, useFactory: _requestIdle, deps: [ NgZone ] }
+  { provide: REQUEST_IDLE_CALLBACK, useFactory: _requestIdle, deps: [ NgZone ] }
 ];
 
 @NgModule({
