@@ -1,3 +1,7 @@
+/*
+ * @AngularClass
+ */
+
 import { NgZone, NgModule, ModuleWithProviders, Inject, OpaqueToken } from '@angular/core';
 // import { PreloadingStrategy, Route } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
