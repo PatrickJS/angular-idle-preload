@@ -7,7 +7,7 @@
 ---
 
 # Angular 2 Idle Preload
-> Angular 2 Idle Preload for preloading async/lazy routes using requestIdleCallback (or fallback to setTimeout included)
+> Angular 2 Idle Preload for preloading async/lazy routes using requestIdleCallback (or fallback to setTimeout which is run outside of zone.js)
 
 ### Why should I use angular2-idle-preload?
 Scheduling non-essential work yourself is very difficult to do. It’s impossible to figure out exactly how much frame time remains because after `requestAnimationFrame` callbacks execute there are style calculations, layout, paint, and other browser internals that need to run. A home-rolled solution can’t account for any of those. In order to be sure that a user isn’t interacting in some way you would also need to attach listeners to every kind of interaction event `(scroll, touch, click)`, even if you don’t need them for functionality, just so that you can be absolutely sure that the user isn’t interacting. The browser, on the other hand, knows exactly how much time is available at the end of the frame, and if the user is interacting, and so through `requestIdleCallback` we gain an API that allows us to make use of any spare time in the most efficient way possible.
