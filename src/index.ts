@@ -59,7 +59,8 @@ export class IdlePreloadModule {
       providers: [
         ...(config.requestIdleCallback === false ? [] : ANGULARCLASS_REQUEST_IDLE_CALLBACK_PROVIDERS),
         ...ANGULARCLASS_IDLE_PRELOAD_PROVIDERS
-      }
+      ]
+    }
   }
 
  /*
