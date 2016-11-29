@@ -18,7 +18,7 @@ export const REQUEST_IDLE_CALLBACK = new OpaqueToken('REQUEST_IDLE_CALLBACK');
 export function _requestIdle(zone: NgZone) {
   let win: any = window;
   if (win.requestIdleCallback) {
-    return win.requestIdleCallback;
+    return (fn) => win.requestIdleCallback(fn);
   }
   return (fn) => zone.runOutsideAngular(() => win.setTimeout(fn, 10));
 }
