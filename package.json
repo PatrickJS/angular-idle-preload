@@ -6,22 +6,28 @@
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
-    "src"
+    "esm"
   ],
   "scripts": {
     "watch": "tsc --watch",
     "prebuild": "rimraf dist",
-    "build": "tsc",
+    "build": "npm run build:es5 && npm run build:esm",
+    "build:es5": "ngc -p tsconfig.es5.json",
+    "prebuild:esm": "rimraf esm",
+    "build:esm": "ngc -p tsconfig.esm.json",
     "test": "",
-    "start": "npm run build",
-    "prepublish": "npm run test && npm run build"
+    "start": "npm run build:es5",
+    "prepublish": "npm run test && npm run build:es5"
   },
   "dependencies": {},
   "devDependencies": {
-    "@angular/common": "^2.2.3",
-    "@angular/core": "^2.2.3",
-    "@angular/platform-browser": "^2.2.3",
-    "@angular/router": "^3.2.3",
+    "@angular/common": "2.2.3",
+    "@angular/compiler": "2.2.3",
+    "@angular/compiler-cli": "2.2.3",
+    "@angular/core": "2.2.3",
+    "@angular/platform-browser": "2.2.3",
+    "@angular/platform-browser-dynamic": "^2.2.3",
+    "@angular/router": "3.2.3",
     "rimraf": "^2.5.4",
     "rxjs": "5.0.0-beta.12",
     "typescript": "~2.0.10",
