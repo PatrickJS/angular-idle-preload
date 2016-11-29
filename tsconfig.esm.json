@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "es2015",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
@@ -9,14 +9,19 @@
     "declaration": true,
     "noEmitHelpers": false,
     "lib": ["es6", "dom"],
-    "outDir": "dist",
+    "outDir": "esm",
     "rootDir": "src"
   },
   "exclude": [
     "node_modules",
     "dist",
+    "src/index.ngfactory.ts",
     "esm"
   ],
+  "angularCompilerOptions": {
+    "debug": false,
+    "skipMetadataEmit": false
+  },
   "compileOnSave": false,
   "buildOnSave": false,
   "atom": { "rewriteTsconfig": false }
