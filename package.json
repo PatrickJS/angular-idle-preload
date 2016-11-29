@@ -1,24 +1,53 @@
 {
   "name": "@angularclass/idle-preload",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-  },
-  "devDependencies": {
-    "rxjs": "5.0.0-beta.12",
-    "@angular/core": "^2.2.3",
-    "@angular/router": "^3.2.3"
-  },
+  "description": "Angular 2 Idle Preload for preloading async routes via @AngularClass",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "tsc --watch",
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "test": "",
+    "start": "npm run build",
+    "prepublish": "npm run test && npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@angular/common": "^2.2.3",
+    "@angular/core": "^2.2.3",
+    "@angular/platform-browser": "^2.2.3",
+    "@angular/router": "^3.2.3",
+    "rimraf": "^2.5.4",
+    "rxjs": "5.0.0-beta.12",
+    "typescript": "~2.0.10",
+    "zone.js": "~0.6.26"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AngularClass/angular2-idle-preload.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "PatrickJS <github@gdi2290.com>",
+  "license": "Apache-2.0",
+  "keywords": [
+    "angular idle",
+    "angular idle preload",
+    "angular preload routes",
+    "preload routes",
+    "preload",
+    "request idle callback",
+    "requestIdleCallback",
+    "Angular 2 requestIdleCallback",
+    "angular2",
+    "angular2modules",
+    "AngularClass",
+    "Angular Class",
+    "AngularClassModules"
+  ],
   "bugs": {
     "url": "https://github.com/AngularClass/angular2-idle-preload/issues"
   },
