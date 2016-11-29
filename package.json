@@ -1,0 +1,26 @@
+{
+  "name": "@angularclass/idle-preload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "rxjs": "5.0.0-beta.12",
+    "@angular/core": "^2.2.3",
+    "@angular/router": "^3.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngularClass/angular2-idle-preload.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AngularClass/angular2-idle-preload/issues"
+  },
+  "homepage": "https://github.com/AngularClass/angular2-idle-preload#readme"
+}
