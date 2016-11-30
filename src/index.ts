@@ -2,7 +2,7 @@
  * @AngularClass
  */
 
-import { NgZone, NgModule, ModuleWithProviders, Inject, OpaqueToken } from '@angular/core';
+import { NgZone, NgModule, ModuleWithProviders, Inject, OpaqueToken, Injectable } from '@angular/core';
 // import { PreloadingStrategy, Route } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -23,6 +23,7 @@ export function _requestIdle(zone: NgZone) {
   return (fn) => zone.runOutsideAngular(() => win.setTimeout(fn, 10));
 }
 
+@Injectable()
 export class IdlePreload /*implements PreloadingStrategy*/ {
  /*
   * include zone to run outside of zone.js
