@@ -1,6 +1,6 @@
 {
   "name": "@angularclass/idle-preload",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Angular 2 Idle Preload for preloading async routes via @AngularClass",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
