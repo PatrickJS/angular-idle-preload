@@ -23,12 +23,12 @@ Scheduling non-essential work yourself is very difficult to do. It’s impossibl
 
 
 ```typescript
-import { IdlePreload, IdleModule } from '@angularclass/idle-preload';
+import { IdlePreload, IdlePreloadModule } from '@angularclass/idle-preload';
 
 @NgModule({
   bootstrap: [ App ],
   imports: [
-    IdleModule.forRoot(), // forRoot ensures the providers are only created once
+    IdlePreloadModule.forRoot(), // forRoot ensures the providers are only created once
     RouterModule.forRoot([], { useHash: false, preloadingStrategy: IdlePreload }),
   ]
 })
