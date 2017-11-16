@@ -10,7 +10,8 @@
     "noEmitHelpers": false,
     "lib": ["es6", "dom"],
     "outDir": "esm",
-    "rootDir": "src"
+    "rootDir": "src",
+    "moduleResolution": "node"
   },
   "exclude": [
     "node_modules",
