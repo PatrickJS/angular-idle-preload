@@ -1,7 +1,7 @@
 {
-  "name": "@angularclass/idle-preload",
+  "name": "angular-idle-preload",
   "version": "2.0.1",
-  "description": "Angular 2 Idle Preload for preloading async routes via @AngularClass",
+  "description": "Angular Idle Preload for preloading async routes via @TipeIO",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -17,7 +17,7 @@
     "build:esm": "ngc -p tsconfig.esm.json",
     "test": "",
     "start": "npm run build:es5",
-    "prepublish": "npm run test && npm run build:es5"
+    "prepublishOnly": "npm run test && npm run build:es5"
   },
   "dependencies": {},
   "devDependencies": {
@@ -35,13 +35,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AngularClass/angular2-idle-preload.git"
+    "url": "git+https://github.com/gdi2290/angular-idle-preload.git"
   },
   "author": "PatrickJS <github@gdi2290.com>",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "keywords": [
     "angular idle",
     "angular idle preload",
+    "angular2-idle-preload",
+    "@angularclass/idle-preload",
     "angular preload routes",
     "preload routes",
     "preload",
@@ -49,13 +51,16 @@
     "requestIdleCallback",
     "Angular 2 requestIdleCallback",
     "angular2",
+    "tipe",
+    "tipe.io",
     "angular2modules",
     "AngularClass",
     "Angular Class",
-    "AngularClassModules"
+    "AngularClassModules",
+    "TipeModules"
   ],
   "bugs": {
-    "url": "https://github.com/AngularClass/angular2-idle-preload/issues"
+    "url": "https://github.com/gdi2290/angular-idle-preload/issues"
   },
-  "homepage": "https://github.com/AngularClass/angular2-idle-preload#readme"
+  "homepage": "https://github.com/gdi2290/angular-idle-preload#readme"
 }
