@@ -2,7 +2,7 @@
  * @AngularClass
  */
 
-import { NgZone, NgModule, ModuleWithProviders, Inject, OpaqueToken, Injectable } from '@angular/core';
+import { NgZone, NgModule, ModuleWithProviders, Inject, InjectionToken, Injectable } from '@angular/core';
 // import { PreloadingStrategy, Route } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -10,7 +10,7 @@ import 'rxjs/add/observable/of';
  /*
   * token to requestIdleCallback
   */
-export const REQUEST_IDLE_CALLBACK = new OpaqueToken('REQUEST_IDLE_CALLBACK');
+export const REQUEST_IDLE_CALLBACK = new InjectionToken('REQUEST_IDLE_CALLBACK');
 
  /*
   * Private please use @angularclass/request-idle-callback if you want to use this
