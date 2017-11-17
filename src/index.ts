@@ -20,9 +20,14 @@ import { of } from 'rxjs/observable/of';
 export const REQUEST_IDLE_CALLBACK = new InjectionToken<string>('REQUEST_IDLE_CALLBACK');
 
  /*
-  * Private please use @angularclass/request-idle-callback if you want to use this
+  * Private API.
+  * please use @angularclass/request-idle-callback if you want
+  * to use `__requestIdle` this without providers
   */
-export function _requestIdle(zone: NgZone) {
+export function __requestIdle(zone: NgZone) {
+  if (typeof window === 'undefined') {
+    return (fn) => setTimeout(fn);
+  }
   let win: any = window;
   if (win.requestIdleCallback) {
     return (fn) => win.requestIdleCallback(fn);
@@ -55,7 +60,7 @@ export const IDLE_PRELOAD_PROVIDERS: any[] = [
 ];
 
 export const REQUEST_IDLE_CALLBACK_PROVIDERS: any[] = [
-  { provide: REQUEST_IDLE_CALLBACK, useFactory: _requestIdle, deps: [ NgZone ] }
+  { provide: REQUEST_IDLE_CALLBACK, useFactory: __requestIdle, deps: [ NgZone ] }
 ];
 
 export interface IdlePreloadConfig {
