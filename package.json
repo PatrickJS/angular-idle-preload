@@ -1,6 +1,6 @@
 {
   "name": "angular-idle-preload",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Angular Idle Preload for preloading async routes via @TipeIO",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
