@@ -19,8 +19,6 @@ import { of } from 'rxjs/observable/of';
   */
 export const REQUEST_IDLE_CALLBACK = new InjectionToken<string>('REQUEST_IDLE_CALLBACK');
 
-type PreloadResponse = any; // Observable<any>;
-
  /*
   * Private API.
   * please use @angularclass/request-idle-callback if you want
@@ -47,7 +45,7 @@ export class IdlePreload /*implements PreloadingStrategy*/ {
  /*
   * fire off preloading async modules
   */
-  preload(route: /*Route*/ any, fn: () => PreloadResponse): PreloadResponse {
+  preload(route: /*Route*/ any, fn: any /* () => Observable<any>*/ ): any/* Observable<any> */ {
     this.requestIdleCallback(fn);
     return of(null);
   }
