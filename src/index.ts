@@ -11,13 +11,15 @@ import {
   Injectable
 } from '@angular/core';
 // import { PreloadingStrategy, Route } from '@angular/router';
-import { Observable } from 'rxjs/observable';
+// import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
  /*
   * token to requestIdleCallback
   */
 export const REQUEST_IDLE_CALLBACK = new InjectionToken<string>('REQUEST_IDLE_CALLBACK');
+
+type PreloadResponse = any; // Observable<any>;
 
  /*
   * Private API.
@@ -45,7 +47,7 @@ export class IdlePreload /*implements PreloadingStrategy*/ {
  /*
   * fire off preloading async modules
   */
-  preload(route: /*Route*/ any, fn: () => Observable<any>): Observable<any> {
+  preload(route: /*Route*/ any, fn: () => PreloadResponse): PreloadResponse {
     this.requestIdleCallback(fn);
     return of(null);
   }
