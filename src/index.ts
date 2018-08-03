@@ -10,9 +10,7 @@ import {
   InjectionToken,
   Injectable
 } from '@angular/core';
-// import { PreloadingStrategy, Route } from '@angular/router';
-// import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import {of} from "rxjs";
 
  /*
   * token to requestIdleCallback
