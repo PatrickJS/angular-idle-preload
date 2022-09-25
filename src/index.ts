@@ -55,16 +55,16 @@ export class IdlePreload /*implements PreloadingStrategy*/ {
  /*
   * fire off preloading async modules - loading only required modules
   */
-  if (this.loading) {
-      if(route.data && !route.data.preload) {
+  preload(route: /*Route*/ any, fn: any /* () => Observable<any>*/ ): any/* Observable<any> */ {
+    if(this.loading) {
+     if(route.data && !route.data.preload) {
         return null;
       } else {
-        preload(route: /*Route*/ any, fn: any /* () => Observable<any>*/ ): any/* Observable<any> */ {
         this.requestIdleCallback(fn);
         return of(null);
       }
+    }
  }
-}
 
 /*
  * raw providers
