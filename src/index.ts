@@ -39,15 +39,33 @@ export class IdlePreload /*implements PreloadingStrategy*/ {
   * include zone to run outside of zone.js
   */
   constructor(private _ngZone: NgZone, @Inject(REQUEST_IDLE_CALLBACK) private requestIdleCallback: any) {}
+  loadingRoute = new Set<Route>();
+  loading = true;
+  
+  /*Checking for slow internet connection*/
+  const conn = typeof navigator !== 'undefined' ? (navigator as any).connection : undefined;
+  if (conn) {
+      if ((conn.effectiveType || '').includes('2g') || conn.saveData) { this.loading = false};
+  }
 
  /*
   * fire off preloading async modules
   */
-  preload(route: /*Route*/ any, fn: any /* () => Observable<any>*/ ): any/* Observable<any> */ {
-    this.requestIdleCallback(fn);
-    return of(null);
+  if (this.loading) {
+    preload(route: /*Route*/ any, fn: any /* () => Observable<any>*/ ): any/* Observable<any> */ {
+      /*To avoid reloading the route*/
+      if (this.loadingRoute.has(route)) {
+        return null;
+      }
+      /*loading only required modules*/
+      if(route.data && !route.data.preload) {
+        return null;
+      } else {
+        this.requestIdleCallback(fn);
+        return of(null);
+      }
+    }
   }
-
 }
 
 /*
