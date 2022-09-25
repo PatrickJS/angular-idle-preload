@@ -42,10 +42,6 @@ export class IdlePreload /*implements PreloadingStrategy*/ {
   loadingRoute = new Set<Route>();
   loading = true;
   
-  /*To avoid reloading the route*/
-  if (this.loadingRoute.has(route)) {
-    this.loading = false;
-  }
   /*Checking for slow internet connection*/
   const conn = typeof navigator !== 'undefined' ? (navigator as any).connection : undefined;
   if (conn) {
@@ -53,18 +49,24 @@ export class IdlePreload /*implements PreloadingStrategy*/ {
   }
 
  /*
-  * fire off preloading async modules - loading only required modules
+  * fire off preloading async modules
   */
-  preload(route: /*Route*/ any, fn: any /* () => Observable<any>*/ ): any/* Observable<any> */ {
-    if(this.loading) {
-     if(route.data && !route.data.preload) {
+  if (this.loading) {
+    preload(route: /*Route*/ any, fn: any /* () => Observable<any>*/ ): any/* Observable<any> */ {
+      /*To avoid reloading the route*/
+      if (this.loadingRoute.has(route)) {
+        return null;
+      }
+      /*loading only required modules*/
+      if(route.data && !route.data.preload) {
         return null;
       } else {
         this.requestIdleCallback(fn);
         return of(null);
       }
     }
- }
+  }
+}
 
 /*
  * raw providers
